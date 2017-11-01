@@ -1,0 +1,34 @@
+'scopeName': 'text.algoritmo'
+'name': 'Pseudo Codigo'
+'fileTypes': [
+  'alg'
+]
+'patterns': [
+  {
+    'include': '#claves'
+  }
+  {
+    'match': '\\b(?i:(algoritmo|lexico|inicio|fin|accion|faccion|funcion|ffuncion|mientras|fmientras|hacer|para|desde|hasta|fpara|si|entonces|sino|fsi|segun|fsegun|repetir|con|paso|otros|iterar|parada|fiterar))\\b'
+    'name': 'keyword.control.algoritmo'
+  }
+  {
+    'match': '\\b((0(x|X)[0-9a-fA-F]*)|(([0-9]+\\.?[0-9]*)|(\\.[0-9]+))((e|E)(\\+|-)?[0-9]+)?)(L|l|UL|ul|u|U|F|f|ll|LL|ull|ULL)?\\b'
+    'name': 'constant.numeric.algoritmo'
+  }
+]
+'repository':
+  'claves':
+    'patterns': [
+      {
+        'begin': '{'
+        'beginCaptures': 'punctuation.definition.comment.algoritmo'
+        'end': '}'
+        'name': 'comment.algoritmo'
+      }
+      {
+        'begin': '//'
+        'beginCaptures': 'punctuation.definition.comment.algoritmo'
+        'end': '$\\n?'
+        'name': 'comment.line.algoritmo'
+      }
+    ]

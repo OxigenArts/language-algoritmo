@@ -1,0 +1,210 @@
+'.text.algoritmo':
+  'Algoritmo ... Lexico ... Inicio ... Fin':
+    'prefix': 'algoritmo'
+    'body': """
+      Algoritmo ${1:programa}
+      Lexico
+      \t$2
+      Inicio
+      \t$3
+      Fin
+    """
+  'Arreglo [0..N] de Tipo':
+    'prefix': 'arreglo'
+    'body': 'Arreglo [0..${1:N}] de ${1:Tipo}'
+  'Inicio ... Fin':
+    'prefix': 'inicio'
+    'body': """
+      Inicio
+      \t$2
+      Fin
+    """
+  'Funcion … Ffuncion':
+    'prefix': 'funcion'
+    'body': """
+      Funcion ${1:nombreFuncion}(${2:parametros})→${3:Tipo}
+      Lexico local
+      \t$4
+      Inicio
+      \t$5
+      FFuncion
+    """
+  'Accion … Faccion':
+    'prefix': 'accion'
+    'body': """
+      Accion ${1:nombreAccion}(${2:parametros})
+      Lexico local
+      \t$4
+      Inicio
+      \t$5
+      FAccion
+    """
+  'Segun':
+    'prefix': 'segun'
+    'body': """
+      Segun
+      \t(${1:condicion}):$2
+      \t(otros):$3
+      FSegun
+    """
+  'Mientras':
+    'prefix': 'mientras'
+    'body': """
+      Mientras (${1:condicion}) hacer
+      \t$2
+      FMientras
+    """
+  'Para':
+    'prefix': 'para'
+    'body': """
+      Para ${1:i} desde ${2:num1} hasta ${3:num2} con paso ${4:num3} hacer
+      \t$5
+      FPara
+    """
+  'Repetir':
+    'prefix': 'repetir'
+    'body': """
+      Repetir
+      \t$0
+      Hasta (${1:condicion})
+    """
+  'Iterar':
+    'prefix': 'iterar'
+    'body': """
+      Iterar
+      \t$0
+      parada (${1:condicion})
+      \t$2
+      FIterar
+    """
+  'Si .. entonces':
+    'prefix': 'si'
+    'body': """
+      Si (${1:condicion}) entonces
+      \t$2
+      Fsi
+    """
+  'Si .. entonces .. sino':
+    'prefix': 'sies'
+    'body': """
+      Si (${1:condicion}) entonces
+      \t$2
+      sino
+      \t$3
+      Fsi
+    """
+  'Esquema R1 (MF)':
+    'prefix': 'er1'
+    'body': """
+      {Inicialización de la adquisición}
+      $1
+      {Inicialización del tratamiento}
+      $2
+      Mientras (${3:noFinSec()}) hacer
+      \t{Tratamiento del elemento corriente}
+      \t$4
+      \t{Obtener siguiente elemento}
+      \t$5
+      Fmientras
+      {Tratamiento final}
+      $6
+    """
+  'Esquema R1 (MI)':
+    'prefix': 'er1mi'
+    'body': """
+      {Inicialización de la adquisición}
+      $1
+      {Inicialización del tratamiento}
+      $2
+      Mientras (${3:noFinSec()}) hacer
+      \t{Obtener siguiente elemento}
+      \t$4
+      \t{Tratamiento del elemento corriente}
+      \t$5
+      Fmientras
+      {Tratamiento final}
+      $6
+    """
+  'Esquema R2 (MF)':
+    'prefix': 'er2'
+    'body': """
+      {Inicialización de la adquisición}
+      $1
+      Segun
+      \t(${2:finSec()}):(${3:tratamientoSecVacia()})
+      \t(${4:noFinSec()}):
+          {Inicialización del tratamiento}
+          $5
+          Mientras (${6:noFinSec()}) hacer
+          \t{Obtener siguiente elemento}
+          \t$7
+          \t{Tratamiento del elemento corriente}
+          \t$8
+          FMientras
+          {Tratamiento final}
+          $9
+      FSegun
+    """
+  'Esquema R3 (MF)':
+    'prefix': 'er3'
+    'body': """
+      {Inicialización de la adquisición}
+      $1
+      Segun
+      \t(${2:finSec()}):(${3:tratamientoSecVacia()})
+      \t(${4:noFinSec()}):
+          {Inicialización del tratamiento}
+          $5
+          {Tratamiento del primer elemento}
+          $6
+          Iterar
+            {obtener siguiente elemento}
+            $7
+          parada (${8:finSec()})
+            {Tratamiento del elemento corriente}
+            $9
+          FIterar
+          {Tratamiento final}
+          $10
+      FSegun
+    """
+  'Esquema B (MF)':
+    'prefix': 'eb'
+    'body': """
+      {Inicialización de la adquisición}
+      $1
+      Segun
+      \t(${2:finSec()}):${3:tratamientoSecVacia()}
+      \t(${4:noFinSec()}):
+          {Inicialización del tratamiento}
+          $5
+          Mientras (${6:noFinSec()}) y (${7:noHallado()}) hacer
+          \t{Obtener siguiente elemento}
+          \t$8
+          Segun
+            (${9:noFinSec()}):${10:tratElemHallado()}
+            (${11:FinSec()}):${12:tratElemHallado()}
+          FSegun
+      FSegun
+    """
+  'Esquema RP (MF)':
+    'prefix': 'erp'
+    'body': """
+      {Inicialización de la adquisición}
+      $1
+      Segun
+      \t(${2:finSec()}):${3:tratamientoSecVacia()}
+      \t(${4:noFinSec()}):
+          {Inicialización del tratamiento}
+          $5
+          Mientras (${6:noFinSec()}) y (${7:noHallado()}) hacer
+          \t{Tratamiento del elemento corriente}
+          \t$8
+          \t{Obtener siguiente elemento}
+          \t$9
+          Segun
+            (${10:noFinSec()}):${11:tratElemHallado()}
+            (${12:FinSec()}):${13:tratElemHallado()}
+          FSegun
+      FSegun
+    """

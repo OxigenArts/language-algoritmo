@@ -1,0 +1,106 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/tmp/d-117931-22946-1qchmqp.8rmld0wwmi/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/tmp/d-117931-22946-1qchmqp.8rmld0wwmi/package.tgz",
+        "spec": "/tmp/d-117931-22946-1qchmqp.8rmld0wwmi/package.tgz",
+        "type": "local"
+      },
+      "/tmp/apm-install-dir-117931-22946-1hcq8m9.8ynmu3ow29"
+    ]
+  ],
+  "_from": "../d-117931-22946-1qchmqp.8rmld0wwmi/package.tgz",
+  "_id": "language-generic-config@1.4.0",
+  "_inCache": true,
+  "_location": "/language-generic-config",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/tmp/d-117931-22946-1qchmqp.8rmld0wwmi/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/tmp/d-117931-22946-1qchmqp.8rmld0wwmi/package.tgz",
+    "spec": "/tmp/d-117931-22946-1qchmqp.8rmld0wwmi/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-117931-22946-1qchmqp.8rmld0wwmi/package.tgz",
+  "_shasum": "ddea347326c3e90a16b3f1a1281a2ee531a23666",
+  "_shrinkwrap": null,
+  "_spec": "/tmp/d-117931-22946-1qchmqp.8rmld0wwmi/package.tgz",
+  "_where": "/tmp/apm-install-dir-117931-22946-1hcq8m9.8ynmu3ow29",
+  "atomTestRunner": "./spec/runner",
+  "author": {
+    "name": "Lee Dohm",
+    "email": "lee@lee-dohm.com"
+  },
+  "bugs": {
+    "url": "https://github.com/lee-dohm/language-generic-config/issues"
+  },
+  "configSchema": {
+    "enableAutomatch": {
+      "type": "boolean",
+      "default": true,
+      "description": "Assign grammar to files which contain comment-like sequences, but don't match any specific language.",
+      "order": 1
+    },
+    "automatchPattern": {
+      "type": "string",
+      "default": "^\\s*[;#]\\s",
+      "description": "Regular expression which determines what lines of a generic-config file are comments.",
+      "order": 2
+    },
+    "requireMinimumMatchingLines": {
+      "type": "number",
+      "default": 2,
+      "min": 1,
+      "description": "Limit automatching to files containing at least *`n`* lines that match `automatchPattern`.",
+      "order": 3
+    }
+  },
+  "dependencies": {},
+  "description": "Provides basic syntax highlighting for configuration files that are just composed of comments or non-comments",
+  "devDependencies": {
+    "atom-mocha-test-runner": "1.0.1",
+    "chai": "^3.5.0"
+  },
+  "engines": {
+    "atom": ">=0.196.0 <2.0.0"
+  },
+  "homepage": "https://github.com/lee-dohm/language-generic-config#readme",
+  "keywords": [
+    "generic",
+    "configuration",
+    "grammar",
+    "syntax"
+  ],
+  "license": "MIT",
+  "name": "language-generic-config",
+  "optionalDependencies": {},
+  "readme": "",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lee-dohm/language-generic-config.git"
+  },
+  "version": "1.4.0",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".js": [
+        "index.js"
+      ],
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
+}
